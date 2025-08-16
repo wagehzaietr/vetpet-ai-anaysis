@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logo": "PetCare AI",
+    "getStarted": "Get Started",
+    "features": "Features",
+    "solution": "Solution",
+    "pricing": "Pricing",
+    "about": "About"
+  },
+  "HomePage": {
+    "title": "Your Pet's Health",
+    "heading": " Just a Chat Away",
+    "description": "AI-powered veterinary guidance in Arabic, designed for Syrian pet lovers.",
+    "button-text": "Start Free Health Check",
+    "button-link": "See How It Works"
+  },
+  "features": {
+    "Feature-1": " Snap or Upload",
+    "Feature-2": "AI Analysis",
+    "Feature-3": "Expert Guidance"
+  },
+  "petAnalysis": {
+    "title": "Pet Health AI Assistant",
+    "subtitle": "Professional veterinary analysis and consultation",
+    "symptomsReported": "Symptoms Reported",
+    "recommendations": "Recommendations",
+    "recommendation1": "Recommendation 1",
+    "recommendation2": "Recommendation 2",
+    "recommendation3": "Recommendation 3",
+    "back": "Back"
+  },
+  "chat": {
+    "title": "AI Consultation",
+    "welcome": "Hello! Describe your pet's symptoms and I'll help assess the situation.",
+    "placeholder": "Describe your pet's condition...",
+    "error": "Connection error. Please try again."
+  },
+  "medical_ai_analysis": "Medical AI Analysis",
+  "chat_with_ai": "Chat with AI Assistant",
+  "image_analysis": "Image Analysis",
+  "symptoms_risk_assessment": "Symptoms Risk Assessment",
+  "ai_doctor_instructions": "AI Doctor Instructions",
+  "upload_medical_image": "Upload Medical Image",
+  "choose_file": "Choose File",
+  "files_selected": "files selected",
+  "no_file_selected": "No file selected",
+  "analyze_image": "Analyze Image",
+  "type_message": "Type your message...",
+  "send": "Send",
+  "thinking": "Thinking...",
+  "describe_symptoms": "Describe your symptoms...",
+  "assess_risk": "Assess Risk",
+  "high_risk": "High Risk",
+  "high_risk_symptoms": "Chest pain, difficulty breathing, severe bleeding, loss of consciousness",
+  "high_risk_advice": "Seek immediate medical attention. Call emergency services or go to the nearest emergency room.",
+  "moderate_risk": "Moderate Risk",
+  "moderate_risk_symptoms": "Fever, persistent cough, headache, fatigue, mild pain",
+  "moderate_risk_advice": "Schedule a doctor's appointment within 24-48 hours. Monitor symptoms closely.",
+  "call_doctor": "Consult Doctor",
+  "call_doctor_advice": "Contact your healthcare provider for professional medical advice and proper diagnosis.",
+  "ai_doctor_guidelines": "Our AI assistant follows these medical guidelines:",
+  "guideline_accuracy": "Provide only evidence-based medical information from reputable sources",
+  "guideline_emergency": "Immediately recognize emergency symptoms and advise seeking urgent care",
+  "guideline_clarity": "Communicate in clear, understandable language without medical jargon",
+  "guideline_privacy": "Maintain strict confidentiality of user health information",
+  "guideline_limitations": "Clearly state limitations and always recommend consulting human doctors"
+}

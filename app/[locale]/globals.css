@@ -1,0 +1,181 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+
+@theme inline {
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+}
+
+@keyframes spotlight {
+  0% {
+    opacity: 0;
+    transform: translate(-72%, -62%) scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -40%) scale(1);
+  }
+}
+
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Background & Text */
+  --background: oklch(0.98 0.015 95); /* Light Cream */
+  --foreground: oklch(0.21 0.015 255); /* Deep Slate */
+
+  /* Cards & Popovers */
+  --card: oklch(0.98 0.015 95); /* Light Cream */
+  --card-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+  --popover: oklch(0.98 0.015 95); /* Light Cream */
+  --popover-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+
+  /* Primary (Forest Green) */
+  --primary: oklch(0.55 0.12 150); /* Forest Green */
+  --primary-foreground: oklch(0.98 0.015 95); /* Light Cream */
+
+  /* Secondary (Golden Sand) */
+  --secondary: oklch(0.88 0.12 90); /* Golden Sand */
+  --secondary-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+
+  /* Muted (Soft background variants) */
+  --muted: oklch(0.94 0.05 90); /* Soft Sand */
+  --muted-foreground: oklch(0.55 0.12 150); /* Forest Green */
+
+  /* Accent (Muted Pink) */
+  --accent: oklch(0.75 0.13 350); /* Muted Pink */
+  --accent-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+
+  /* Destructive (Reddish tone for warnings) */
+  --destructive: oklch(0.6 0.2 30); /* Soft Red/Orange Alert */
+
+  /* Borders, Inputs, Rings */
+  --border: oklch(0.9 0.02 95);
+  --input: oklch(0.9 0.02 95);
+  --ring: oklch(0.7 0.04 150);
+
+  /* Charts (Themed colors) */
+  --chart-1: oklch(0.55 0.12 150); /* Forest Green */
+  --chart-2: oklch(0.88 0.12 90); /* Golden Sand */
+  --chart-3: oklch(0.75 0.13 350); /* Muted Pink */
+  --chart-4: oklch(0.98 0.015 95); /* Light Cream */
+  --chart-5: oklch(0.21 0.015 255); /* Deep Slate */
+
+  /* Sidebar */
+  --sidebar: oklch(0.98 0.015 95); /* Light Cream */
+  --sidebar-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+  --sidebar-primary: oklch(0.55 0.12 150); /* Forest Green */
+  --sidebar-primary-foreground: oklch(0.98 0.015 95); /* Light Cream */
+  --sidebar-accent: oklch(0.75 0.13 350); /* Muted Pink */
+  --sidebar-accent-foreground: oklch(0.21 0.015 255); /* Deep Slate */
+  --sidebar-border: oklch(0.9 0.02 95);
+  --sidebar-ring: oklch(0.7 0.04 150);
+}
+
+
+.dark {
+  /* Background & Text */
+  --background: oklch(0.18 0.015 255); /* Deep Slate */
+  --foreground: oklch(0.98 0.015 95);  /* Light Cream */
+
+  /* Cards & Popovers */
+  --card: oklch(0.22 0.02 255); /* Slightly lighter Deep Slate */
+  --card-foreground: oklch(0.98 0.015 95); /* Light Cream */
+  --popover: oklch(0.22 0.02 255);
+  --popover-foreground: oklch(0.98 0.015 95);
+
+  /* Primary (Forest Green) */
+  --primary: oklch(0.6 0.12 150); /* Forest Green brightened */
+  --primary-foreground: oklch(0.18 0.015 255); /* Deep Slate */
+
+  /* Secondary (Golden Sand) */
+  --secondary: oklch(0.78 0.12 90); /* Golden Sand dark-mode tone */
+  --secondary-foreground: oklch(0.18 0.015 255);
+
+  /* Muted (Soft background variants) */
+  --muted: oklch(0.26 0.015 255); /* Slightly lighter slate for muted areas */
+  --muted-foreground: oklch(0.78 0.12 90); /* Golden Sand */
+
+  /* Accent (Muted Pink) */
+  --accent: oklch(0.7 0.13 350); /* Muted Pink adjusted for dark mode */
+  --accent-foreground: oklch(0.18 0.015 255);
+
+  /* Destructive (Soft alert) */
+  --destructive: oklch(0.6 0.2 30); /* Warm Red/Orange */
+
+  /* Borders, Inputs, Rings */
+  --border: oklch(0.22 0.015 255 / 30%);
+  --input: oklch(0.22 0.015 255 / 40%);
+  --ring: oklch(0.6 0.12 150); /* Forest Green ring */
+
+  /* Charts (Themed) */
+  --chart-1: oklch(0.6 0.12 150); /* Forest Green */
+  --chart-2: oklch(0.78 0.12 90); /* Golden Sand */
+  --chart-3: oklch(0.7 0.13 350); /* Muted Pink */
+  --chart-4: oklch(0.98 0.015 95); /* Light Cream */
+  --chart-5: oklch(0.18 0.015 255); /* Deep Slate */
+
+  /* Sidebar */
+  --sidebar: oklch(0.22 0.02 255); /* Deep Slate lighter */
+  --sidebar-foreground: oklch(0.98 0.015 95); /* Light Cream */
+  --sidebar-primary: oklch(0.6 0.12 150); /* Forest Green */
+  --sidebar-primary-foreground: oklch(0.18 0.015 255); /* Deep Slate */
+  --sidebar-accent: oklch(0.7 0.13 350); /* Muted Pink */
+  --sidebar-accent-foreground: oklch(0.98 0.015 95); /* Light Cream */
+  --sidebar-border: oklch(0.22 0.015 255 / 30%);
+  --sidebar-ring: oklch(0.6 0.12 150); /* Forest Green */
+}
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-white dark:bg-white;
+  }
+}
