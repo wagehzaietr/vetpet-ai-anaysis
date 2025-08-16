@@ -3,11 +3,10 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 import { motion, type Variants } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { Spotlight } from "./ui/Spotlight";
-import { HeroHeader } from "./Header";
 
 export function HeroSectionOne() {
   const t = useTranslations();
@@ -37,12 +36,13 @@ export function HeroSectionOne() {
 
   return (
     <div className="relative overflow-hidden">
-      
+    
 
-      <Spotlight
-        className="-top-40 left-0 md:-top-20 md:left-20"
+        <Spotlight
+        className="-top-40 right-0 md:-top-20 md:left-20"
         fill="white"
-      />
+        />
+      
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <motion.div
@@ -58,7 +58,7 @@ export function HeroSectionOne() {
             {/* Main Heading */}
             <motion.h1
               variants={itemVariants}
-              className="mt-8 text-4xl font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl dark:text-white"
+              className="mt-8 text-5xl pt-12 text-center md:text-start font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl dark:text-white"
             >
               <span className="text-white">
                 <span className="text-primary">{t("HomePage.title")}</span>
@@ -69,7 +69,7 @@ export function HeroSectionOne() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="mt-6 text-lg leading-relaxed text-white/70"
+              className="mt-6 text-lg leading-relaxed text-white/70 text-center md:text-start "
             >
               {t("HomePage.description")}
             </motion.p>
