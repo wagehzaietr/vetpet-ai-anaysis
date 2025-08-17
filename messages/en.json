@@ -31,7 +31,8 @@
     "recommendations": "Recommendations",
     "whenToSeekVet": "When to Seek Vet",
     "homeCare": "Home Care",
-    "contagious": "Contagious"
+    "contagious": "Contagious",
+    "resultsTitle": "results"
   },
   "chat": {
     "title": "AI Consultation",
@@ -52,9 +53,10 @@
   "or": "or",
   "multiple": "multiple",
   "clear": "Clear",
+  "drag_drop_here": "Drag & drop images here",
   "type_message": "Type your message...",
   "send": "Send",
-  "thinking": "Thinking...",
+  "thinking": "analysing your amazing pet...",
   "describe_symptoms": "Describe your symptoms...",
   "assess_risk": "Assess Risk",
   "high_risk": "High Risk",

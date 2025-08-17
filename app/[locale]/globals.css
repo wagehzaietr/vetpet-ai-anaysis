@@ -179,3 +179,9 @@
     @apply bg-white dark:bg-white;
   }
 }
+
+/* Use Arabic font for RTL locales */
+:root[dir="rtl"] {
+  /* next/font variables: swap sans to Tajawal when RTL */
+  --font-geist-sans: var(--font-arabic);
+}

@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import ImageAnalysis from "./Image-analysis";
 import PetAnalysis from "./Analysis-result";
 import HelpSection from "./How-to-use";
+import { ShimmeringText } from "./ui/ShimmeringText";
 
 function AiAnalysis() {
   const t = useTranslations();
@@ -202,7 +203,8 @@ function AiAnalysis() {
                       </div>
                     ))}
                   {isBusy && (
-                    <div className="text-gray-500">{t("thinking")}</div>
+                    
+                    <ShimmeringText text={t("thinking")}/>
                   )}
                   {visibleMessages.length === 0 && (
                     <div className="text-gray-500">{t("chat.welcome")}</div>
@@ -235,12 +237,11 @@ function AiAnalysis() {
                 </form>
               </div>
 
-              <ImageAnalysis handleAnalyzeClick={handleAnalyzeClick} fileInputRef={fileInputRef} files={files} setFiles={setFiles} symptoms={symptoms} setSymptoms={setSymptoms} assessSymptoms={assessSymptoms}  />
+              <ImageAnalysis isBusy={isBusy} handleAnalyzeClick={handleAnalyzeClick} fileInputRef={fileInputRef} files={files} setFiles={setFiles} symptoms={symptoms} setSymptoms={setSymptoms} assessSymptoms={assessSymptoms}  />
             </div>
           </>
         )}
       </div>
-      <HelpSection/>
     </div>
   );
 }

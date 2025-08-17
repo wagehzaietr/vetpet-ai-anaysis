@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Tajawal } from "next/font/google";
 import "./globals.css";
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
@@ -14,6 +14,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Arabic-capable font for RTL locales
+const tajawal = Tajawal({
+  variable: "--font-arabic",
+  subsets: ["arabic", "latin"],
+  weight: ["200","300","400","500","700","800","900"],
 });
 
 export const metadata: Metadata = {
@@ -35,8 +42,8 @@ export default async function RootLayout({
 
   const dir = locale === 'ar' ? 'rtl' : 'ltr'
   return (
-    <html lang={locale} dir={dir}>
-      <body>
+    <html lang={locale} dir={dir} className={`${geistSans.variable} ${geistMono.variable} ${tajawal.variable}`}>
+      <body className="font-sans">
         <NextIntlClientProvider>
         <HeroHeader/>
         <main>

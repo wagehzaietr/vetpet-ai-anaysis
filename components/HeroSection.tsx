@@ -3,10 +3,11 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 import { motion, type Variants } from "framer-motion";
-import { useLocale, useTranslations } from "next-intl";
+import {  useTranslations } from "next-intl";
 import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { Spotlight } from "./ui/Spotlight";
+import HowItWorks from "./How-to-use";
 
 export function HeroSectionOne() {
   const t = useTranslations();
@@ -144,15 +145,15 @@ export function HeroSectionOne() {
                     priority
                   />
 
-                  {/* Floating UI elements */}
                 </div>
               </div>
             </div>
 
-            {/* Decorative floating elements */}
+
           </motion.div>
         </motion.div>
       </div>
+   
     </div>
   );
 }

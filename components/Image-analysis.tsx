@@ -1,11 +1,13 @@
 import React from "react";
 import { useTranslations } from "next-intl";
+import { ShimmeringText } from "./ui/ShimmeringText";
 
 function ImageAnalysis({
   handleAnalyzeClick,
   fileInputRef,
   files,
   setFiles,
+  isBusy,
 }: {
     handleAnalyzeClick: React.MouseEventHandler<HTMLButtonElement>;
     fileInputRef: React.RefObject<HTMLInputElement | null>; 
@@ -14,9 +16,25 @@ function ImageAnalysis({
     symptoms: string;
     setSymptoms: React.Dispatch<React.SetStateAction<string>>;
     assessSymptoms: () => void;
+    isBusy: boolean;
 }) {
   const t = useTranslations();
   const [isDragging, setIsDragging] = React.useState(false);
+  // Preview URLs for the selected images
+  const [previews, setPreviews] = React.useState<string[]>([]);
+
+  // Generate and cleanup object URLs when files change
+  React.useEffect(() => {
+    if (!files || files.length === 0) {
+      setPreviews([]);
+      return;
+    }
+    const urls = Array.from(files).map((f) => URL.createObjectURL(f));
+    setPreviews(urls);
+    return () => {
+      urls.forEach((u) => URL.revokeObjectURL(u));
+    };
+  }, [files]);
 
   const onDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -87,7 +105,7 @@ function ImageAnalysis({
               <p className="text-sm text-gray-600">
                 <span className="font-medium text-primary">{t("choose_file")}</span>
                 <span className="mx-1">{t("or")}</span>
-                <span className="font-medium">Drag & drop images here</span>
+                <span className="font-medium">{t("drag_drop_here")}</span>
               </p>
               <p className="text-xs text-gray-400 mt-1">PNG, JPG, JPEG • {t("multiple")}</p>
 
@@ -124,11 +142,35 @@ function ImageAnalysis({
               ) : null}
             </div>
 
+            {/* Previews */}
+            {previews.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-4">
+                {previews.map((src, idx) => (
+                  <div
+                    key={idx}
+                    className="relative w-full aspect-video overflow-hidden rounded-md border"
+                  >
+                    <img
+                      src={src}
+                      alt={`preview-${idx}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {files && (
+                      <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-[10px] px-1 py-0.5 truncate">
+                        {Array.from(files)[idx]?.name}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+
             <button
               onClick={handleAnalyzeClick}
               className="bg-primary text-primary-foreground rounded-lg px-4 py-2 w-full"
+              disabled={isBusy}
             >
-              {t("analyze_image")}
+              {isBusy ? <ShimmeringText text={t("thinking")}/> : t("analyze_image")}
             </button>
           </div>
         </div>
