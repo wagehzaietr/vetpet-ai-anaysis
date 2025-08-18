@@ -62,7 +62,7 @@ export function HeroSectionOne() {
               className="mt-8 text-5xl pt-12 text-center md:text-start font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl dark:text-white"
             >
               <span className="text-white">
-                <span className="text-primary">{t("HomePage.title")}</span>
+                <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">{t("HomePage.title")}</span>
                 {t("HomePage.heading")}
               </span>
             </motion.h1>
@@ -105,7 +105,7 @@ export function HeroSectionOne() {
                     fill="currentColor"
                   />
                 </div>
-                <span>See How It Works</span>
+                <span>{t("HomePage.button-link")}</span>
               </button>
             </motion.div>
 
@@ -136,7 +136,7 @@ export function HeroSectionOne() {
               <div className="overflow-hidden rounded-[1.25rem] border border-slate-200/60 bg-white shadow-inner">
                 <div className="relative">
                   <Image
-                    src="/hero-img1.png"
+                    src="/hero-img.png"
                     alt="AI-powered website builder interface showing modern landing page templates"
                     className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
                     height={900}

@@ -13,7 +13,7 @@ export const HeroHeader = () => {
   const t = useTranslations();
   const menuItems = [
     { name: t("header.features"), href: "/ai-checks" },
-    { name: t("header.solution"), href: "#link" },
+    { name: t("header.solution"), href: "#how-it-works" },
     { name: t("header.pricing"), href: "#link" },
     { name: t("header.about"), href: "#link" },
   ];
@@ -46,7 +46,7 @@ export const HeroHeader = () => {
                 aria-label="home"
                 className="flex items-center space-x-2 h-15 w-15 object-cover"
               >
-                <Image src="/logo.png" alt="" width={800} height={600} />
+                <Image src="/headerlogo.png" alt="" width={800} height={600} />
               </Link>
               <button
                 onClick={() => setMenuState(!menuState)}

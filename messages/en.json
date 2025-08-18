@@ -14,6 +14,33 @@
     "button-text": "Start Free Health Check",
     "button-link": "See How It Works"
   },
+  "howItWorks": {
+    "title": "How It Works",
+    "subtitle": {
+      "p1": "Get professional veterinary insights for your pet in three simple steps with our AI-powered platform"
+    },
+    "seeInAction": {
+      "title": "See It In Action",
+      "desc": "Watch how our AI analyzes pet health in seconds"
+    },
+    "trustedBy": "Trusted by pet owners",
+    "rating": "(4.9/5)",
+    "processTitle": "Simple 3-Step Process",
+    "steps": {
+      "1": {
+        "title": "Describe Symptoms",
+        "desc": "Tell our AI about your pet's condition, behavior changes, or any concerns you've noticed."
+      },
+      "2": {
+        "title": "Upload Images",
+        "desc": "Share photos of your pet or visible symptoms for more accurate AI analysis."
+      },
+      "3": {
+        "title": "Get AI Analysis",
+        "desc": "Receive professional veterinary insights and recommended next steps instantly."
+      }
+    }
+  },
   "features": {
     "Feature-1": " Snap or Upload",
     "Feature-2": "AI Analysis",
