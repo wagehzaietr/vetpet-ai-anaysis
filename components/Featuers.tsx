@@ -3,38 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Camera, Stethoscope, Palette, MessageCircle, AlertTriangle, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useTranslations } from "next-intl";
 
 const features = [
-  {
-    icon: Camera,
-    title: "Image Analysis",
-    description: "Detect visible symptoms through advanced image recognition technology"
-  },
-  {
-    icon: Stethoscope,
-    title: "Symptom Assessment",
-    description: "Comprehensive evaluation of symptoms and risk factors for accurate health insights"
-  },
-  {
-    icon: Palette,
-    title: "Waste Analysis",
-    description: "Interpret poop and vomit colors to identify potential health issues"
-  },
-  {
-    icon: MessageCircle,
-    title: "Bilingual Chat",
-    description: "Communicate in Arabic or English with our AI-powered assistant"
-  },
-  {
-    icon: AlertTriangle,
-    title: "Emergency Guidance",
-    description: "Instant alerts and step-by-step instructions during urgent situations"
-  },
-  {
-    icon: Shield,
-    title: "Data Privacy",
-    description: "Your health information is encrypted and never shared with third parties"
-  }
+  { icon: Camera, key: "imageAnalysis" },
+  { icon: Stethoscope, key: "symptomAssessment" },
+  { icon: Palette, key: "wasteAnalysis" },
+  { icon: MessageCircle, key: "bilingualChat" },
+  { icon: AlertTriangle, key: "emergencyGuidance" },
+  { icon: Shield, key: "dataPrivacy" }
 ];
 
 const containerVariants = {
@@ -53,13 +30,13 @@ const itemVariants = {
     y: 0,
     opacity: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut"
+      duration: 0.5
     }
   }
 };
 
 export default function FeaturesSection() {
+  const t = useTranslations();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -81,7 +58,7 @@ export default function FeaturesSection() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.2 }}
           >
-            Pet Health Features
+            {t("featuresSection.title")}
           </motion.h2>
           <motion.p 
             className="text-lg text-gray-600 max-w-2xl mx-auto"
@@ -89,7 +66,7 @@ export default function FeaturesSection() {
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
           >
-            Comprehensive tools to monitor and improve your pet's well-being
+            {t("featuresSection.subtitle")}
           </motion.p>
         </motion.div>
         
@@ -112,11 +89,11 @@ export default function FeaturesSection() {
                     >
                       <feature.icon className="h-6 w-6 text-blue-600" />
                     </motion.div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    <CardTitle className="text-xl">{t(`featuresSection.items.${feature.key}.title`)}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-gray-600">{t(`featuresSection.items.${feature.key}.desc`)}</p>
                 </CardContent>
               </Card>
             </motion.div>

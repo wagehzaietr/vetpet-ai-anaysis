@@ -3,8 +3,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Shield, BookOpen, AlertCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useTranslations } from "next-intl";
 
 export default function TrustSection() {
+  const t = useTranslations();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -21,10 +23,10 @@ export default function TrustSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-primary to-green-500 bg-clip-text text-transparent mb-4">
-            Why Trust Our AI
+            {t("trustSection.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Built on veterinary expertise and trusted global standards
+            {t("trustSection.subtitle")}
           </p>
         </motion.div>
 
@@ -40,11 +42,11 @@ export default function TrustSection() {
                 <Shield className="h-6 w-6 text-blue-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Veterinary Guidelines
+                {t("trustSection.cards.guidelines.title")}
               </h3>
             </div>
             <p className="text-gray-600">
-              Our AI follows evidence-based protocols developed by veterinary professionals for accurate symptom assessment.
+              {t("trustSection.cards.guidelines.desc")}
             </p>
           </motion.div>
 
@@ -59,24 +61,24 @@ export default function TrustSection() {
                 <BookOpen className="h-6 w-6 text-green-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                Trusted Data Sources
+                {t("trustSection.cards.sources.title")}
               </h3>
             </div>
             <p className="text-gray-600 mb-2">
-              We reference guidelines from leading veterinary organizations:
+              {t("trustSection.cards.sources.intro")}
             </p>
             <ul className="text-gray-600 space-y-1">
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                WSAVA (World Small Animal Veterinary Association)
+                {t("trustSection.cards.sources.items.wsava")}
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                AVMA (American Veterinary Medical Association)
+                {t("trustSection.cards.sources.items.avma")}
               </li>
               <li className="flex items-center">
                 <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                RSPCA (Royal Society for the Prevention of Cruelty to Animals)
+                {t("trustSection.cards.sources.items.rspca")}
               </li>
             </ul>
           </motion.div>
@@ -92,11 +94,11 @@ export default function TrustSection() {
                 <AlertCircle className="h-6 w-6 text-amber-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900">
-                AI Limitations
+                {t("trustSection.cards.limitations.title")}
               </h3>
             </div>
             <p className="text-gray-600">
-              Our AI provides guidance based on available information but cannot replace professional veterinary diagnosis or emergency care.
+              {t("trustSection.cards.limitations.desc")}
             </p>
           </motion.div>
         </div>
@@ -112,12 +114,10 @@ export default function TrustSection() {
                 <AlertCircle className="h-6 w-6 text-amber-600 mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-amber-800 mb-2">
-                    Important Disclaimer
+                    {t("trustSection.disclaimer.title")}
                   </h3>
                   <p className="text-amber-700">
-                    This tool provides general guidance and is not a substitute for professional veterinary advice. 
-                    Always consult with a qualified veterinarian for diagnosis and treatment, especially in emergency situations. 
-                    We do not guarantee the accuracy of AI-generated assessments.
+                    {t("trustSection.disclaimer.text")}
                   </p>
                 </div>
               </div>

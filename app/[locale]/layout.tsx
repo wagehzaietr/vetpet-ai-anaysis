@@ -5,6 +5,9 @@ import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import { HeroHeader } from "../../components/Header";
+import  FooterSection  from '@/components/Footer';
+import ScrollToTop from "@/components/ui/ScrollToTop";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,9 +49,11 @@ export default async function RootLayout({
       <body className="font-sans">
         <NextIntlClientProvider>
         <HeroHeader/>
+        <ScrollToTop/>
         <main>
         {children}
       </main>
+      <FooterSection />
           </NextIntlClientProvider>
       </body>
     </html>

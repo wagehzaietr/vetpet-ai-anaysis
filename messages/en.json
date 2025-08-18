@@ -99,5 +99,136 @@
   "guideline_emergency": "Immediately recognize emergency symptoms and advise seeking urgent care",
   "guideline_clarity": "Communicate in clear, understandable language without medical jargon",
   "guideline_privacy": "Maintain strict confidentiality of user health information",
-  "guideline_limitations": "Clearly state limitations and always recommend consulting human doctors"
+  "guideline_limitations": "Clearly state limitations and always recommend consulting human doctors",
+  "featuresSection": {
+    "title": "Pet Health Features",
+    "subtitle": "Comprehensive tools to monitor and improve your pet's well-being",
+    "items": {
+      "imageAnalysis": {
+        "title": "Image Analysis",
+        "desc": "Detect visible symptoms through advanced image recognition technology"
+      },
+      "symptomAssessment": {
+        "title": "Symptom Assessment",
+        "desc": "Comprehensive evaluation of symptoms and risk factors for accurate health insights"
+      },
+      "wasteAnalysis": {
+        "title": "Waste Analysis",
+        "desc": "Interpret poop and vomit colors to identify potential health issues"
+      },
+      "bilingualChat": {
+        "title": "Bilingual Chat",
+        "desc": "Communicate in Arabic or English with our AI-powered assistant"
+      },
+      "emergencyGuidance": {
+        "title": "Emergency Guidance",
+        "desc": "Instant alerts and step-by-step instructions during urgent situations"
+      },
+      "dataPrivacy": {
+        "title": "Data Privacy",
+        "desc": "Your health information is encrypted and never shared with third parties"
+      }
+    }
+  },
+  "riskLevels": {
+    "title": "Risk Level & Example Results",
+    "subtitle": "See how our AI analyzes symptoms and provides clear recommendations",
+    "exampleLabel": "Example AI Output:",
+    "indicator": "Risk Level Indicator",
+    "footerNote": "Our AI provides clear, actionable recommendations for every risk level",
+    "levels": {
+      "high": "High Risk",
+      "moderate": "Moderate Risk",
+      "low": "Low Risk"
+    },
+    "examples": {
+      "high": "Difficulty breathing detected — urgent vet visit recommended.",
+      "moderate": "Mild skin redness — monitor and apply safe home care.",
+      "low": "Normal stool color — continue monitoring."
+    }
+  },
+  "trustSection": {
+    "title": "Why Trust Our AI",
+    "subtitle": "Built on veterinary expertise and trusted global standards",
+    "cards": {
+      "guidelines": {
+        "title": "Veterinary Guidelines",
+        "desc": "Our AI follows evidence-based protocols developed by veterinary professionals for accurate symptom assessment."
+      },
+      "sources": {
+        "title": "Trusted Data Sources",
+        "intro": "We reference guidelines from leading veterinary organizations:",
+        "items": {
+          "wsava": "WSAVA (World Small Animal Veterinary Association)",
+          "avma": "AVMA (American Veterinary Medical Association)",
+          "rspca": "RSPCA (Royal Society for the Prevention of Cruelty to Animals)"
+        }
+      },
+      "limitations": {
+        "title": "AI Limitations",
+        "desc": "Our AI provides guidance based on available information but cannot replace professional veterinary diagnosis or emergency care."
+      }
+    },
+    "disclaimer": {
+      "title": "Important Disclaimer",
+      "text": "This tool provides general guidance and is not a substitute for professional veterinary advice. Always consult with a qualified veterinarian for diagnosis and treatment, especially in emergency situations. We do not guarantee the accuracy of AI-generated assessments."
+    }
+  },
+  "testimonials": {
+    "titleTop": "Loved by Pet Parents",
+    "titleBottom": "Everywhere",
+    "subtitle": "Join thousands of pet parents who trust PetCare AI to keep their furry friends healthy and happy"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about PetCare AI and how it can help your furry friends",
+    "items": {
+      "isVet": {
+        "question": "Is PetCare AI a real vet?",
+        "answer": "No, PetCare AI is an AI-powered tool designed to provide preliminary health assessments based on symptoms you describe. It's not a substitute for professional veterinary care but can help you determine when to seek urgent attention."
+      },
+      "supportedPets": {
+        "question": "What kind of pets do you support?",
+        "answer": "Currently, we support dogs and cats of all breeds and ages. Our AI is trained on species-specific health data to provide accurate assessments for these common companion animals."
+      },
+      "accuracy": {
+        "question": "How accurate is the AI?",
+        "answer": "Our AI achieves approximately 85% accuracy in identifying common symptoms and risk levels. However, accuracy varies based on symptom description quality and image clarity. Always verify with a veterinarian for critical health decisions."
+      },
+      "emergencies": {
+        "question": "What about emergencies?",
+        "answer": "For emergencies, our AI will immediately flag high-risk situations and recommend urgent veterinary care. We provide clear instructions for stabilizing your pet and locating the nearest emergency clinic, but you should contact your vet or emergency services directly."
+      }
+    }
+  },
+  "ctaSection": {
+    "titleTop": "Start Your Pet's Health",
+    "titleBottom": "Check Now",
+    "subtitle": "Join thousands of pet parents who trust PetCare AI for quick, reliable health assessments. Get peace of mind in just a few clicks.",
+    "features": {
+      "fastResults": "Get results in seconds",
+      "trusted": "Trusted by 50,000+ pet parents",
+      "free": "Free health assessments"
+    },
+    "button": "Start Health Check",
+    "trustBanner": "Trusted by pet parents worldwide",
+    "metrics": {
+      "happyPets": "Happy Pets",
+      "satisfaction": "Satisfaction",
+      "available": "Available"
+    },
+    "footerNote": "No registration required • Free to use • Results in seconds"
+  },
+  "footer": {
+    "logoAria": "Go home",
+    "brand": "PetCare",
+    "rights": "All rights reserved",
+    "social": {
+      "twitter": "X/Twitter",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "threads": "Threads",
+      "instagram": "Instagram"
+    }
+  }
 }

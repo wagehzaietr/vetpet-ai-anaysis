@@ -3,24 +3,16 @@ import { motion, cubicBezier, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { ArrowRight, Shield, Clock, Heart, Sparkles } from "lucide-react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 const route = () =>{
     
 }
 
 const features = [
-  {
-    icon: Clock,
-    text: "Get results in seconds"
-  },
-  {
-    icon: Shield,
-    text: "Trusted by 50,000+ pet parents"
-  },
-  {
-    icon: Heart,
-    text: "Free health assessments"
-  }
+  { icon: Clock, key: "features.fastResults" },
+  { icon: Shield, key: "features.trusted" },
+  { icon: Heart, key: "features.free" }
 ];
 
 const containerVariants: Variants = {
@@ -64,6 +56,7 @@ interface CallToActionProps {
 
   
 export default function CallToActionSection({buttonText, buttonLink}: CallToActionProps) {
+  const t = useTranslations();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -92,19 +85,18 @@ export default function CallToActionSection({buttonText, buttonLink}: CallToActi
             className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
           >
             <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">
-              Start Your Pet's
-            </span>
+              {t("ctaSection.titleTop")}
             <br />
-            Health Check Now
+             {t("ctaSection.titleBottom")}
+            </span>
           </motion.h2>
 
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-[17px] text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            Join thousands of pet parents who trust PetCare AI for quick, reliable health assessments. 
-            Get peace of mind in just a few clicks.
+            {t("ctaSection.subtitle")}
           </motion.p>
 
           {/* Features */}
@@ -117,7 +109,7 @@ export default function CallToActionSection({buttonText, buttonLink}: CallToActi
                 <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                   <feature.icon className="w-4 h-4 text-green-600" />
                 </div>
-                <span className="font-medium">{feature.text}</span>
+                <span className="font-medium">{t(`ctaSection.${feature.key}`)}</span>
               </div>
             ))}
           </motion.div>
@@ -133,7 +125,7 @@ export default function CallToActionSection({buttonText, buttonLink}: CallToActi
               className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-primary to-green-600 text-white px-12 py-6 rounded-2xl font-bold text-xl shadow-xl shadow-blue-500/25 hover:shadow-2xl hover:shadow-blue-500/30 transition-all duration-300 overflow-hidden"
             >
               
-              <span className="relative z-10">Start Health Check</span>
+              <span className="relative z-10">{t("ctaSection.button")}</span>
 
 
             </Link>
@@ -144,21 +136,21 @@ export default function CallToActionSection({buttonText, buttonLink}: CallToActi
             variants={itemVariants}
             className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto shadow-lg shadow-gray-100/50"
           >
-            <p className="text-sm text-gray-500 mb-4 font-medium">Trusted by pet parents worldwide</p>
+            <p className="text-sm text-gray-500 mb-4 font-medium">{t("ctaSection.trustBanner")}</p>
             <div className="flex items-center justify-center gap-8 flex-wrap">
               <div className="text-center">
                 <div className="text-2xl font-bold text-blue-600">50K+</div>
-                <div className="text-sm text-gray-600">Happy Pets</div>
+                <div className="text-sm text-gray-600">{t("ctaSection.metrics.happyPets")}</div>
               </div>
               <div className="w-px h-8 bg-gray-300"></div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-green-600">98%</div>
-                <div className="text-sm text-gray-600">Satisfaction</div>
+                <div className="text-sm text-gray-600">{t("ctaSection.metrics.satisfaction")}</div>
               </div>
               <div className="w-px h-8 bg-gray-300"></div>
               <div className="text-center">
                 <div className="text-2xl font-bold text-purple-600">24/7</div>
-                <div className="text-sm text-gray-600">Available</div>
+                <div className="text-sm text-gray-600">{t("ctaSection.metrics.available")}</div>
               </div>
             </div>
           </motion.div>
@@ -168,7 +160,7 @@ export default function CallToActionSection({buttonText, buttonLink}: CallToActi
             variants={itemVariants}
             className="text-sm text-gray-500 mt-8 max-w-md mx-auto"
           >
-            No registration required • Free to use • Results in seconds
+            {t("ctaSection.footerNote")}
           </motion.p>
         </motion.div>
       </div>

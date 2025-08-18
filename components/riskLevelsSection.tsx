@@ -4,38 +4,40 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AlertTriangle, AlertCircle, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { useTranslations } from "next-intl";
 
 const riskLevels = [
   {
-    level: "High Risk",
+    levelKey: "levels.high",
     color: "bg-red-500",
     borderColor: "border-red-200",
     bgColor: "bg-red-50",
     textColor: "text-red-700",
     icon: AlertTriangle,
-    example: "Difficulty breathing detected — urgent vet visit recommended.",
+    exampleKey: "examples.high",
   },
   {
-    level: "Moderate Risk",
+    levelKey: "levels.moderate",
     color: "bg-amber-500",
     borderColor: "border-amber-200",
     bgColor: "bg-amber-50",
     textColor: "text-amber-700",
     icon: AlertCircle,
-    example: "Mild skin redness — monitor and apply safe home care.",
+    exampleKey: "examples.moderate",
   },
   {
-    level: "Low Risk",
+    levelKey: "levels.low",
     color: "bg-green-500",
     borderColor: "border-green-200",
     bgColor: "bg-green-50",
     textColor: "text-green-700",
     icon: CheckCircle,
-    example: "Normal stool color — continue monitoring.",
+    exampleKey: "examples.low",
   },
 ];
 
 export default function RiskLevelSection() {
+  const t = useTranslations();
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -52,10 +54,10 @@ export default function RiskLevelSection() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl  md:text-4xl font-bold bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent mb-4">
-            Risk Level & Example Results
+            {t("riskLevels.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            See how our AI analyzes symptoms and provides clear recommendations
+            {t("riskLevels.subtitle")}
           </p>
         </motion.div>
 
@@ -77,7 +79,7 @@ export default function RiskLevelSection() {
                 >
                   <div className="flex items-center justify-between">
                     <CardTitle className={`text-xl ${risk.textColor}`}>
-                      {risk.level}
+                      {t(`riskLevels.${risk.levelKey}`)}
                     </CardTitle>
                     <div className={`p-2 rounded-full ${risk.color}`}>
                       <risk.icon className="h-6 w-6 text-white" />
@@ -88,18 +90,18 @@ export default function RiskLevelSection() {
                   <div className="mb-4">
                     <div className="flex items-center mb-2">
                       <span className="text-sm font-medium text-gray-500">
-                        Example AI Output:
+                        {t("riskLevels.exampleLabel")}
                       </span>
                     </div>
                     <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                      <p className="text-gray-700">{risk.example}</p>
+                      <p className="text-gray-700">{t(`riskLevels.${risk.exampleKey}`)}</p>
                     </div>
                   </div>
                   <div className="flex justify-center mt-4">
                     <div className="flex items-center">
                       <div className={`h-2 w-2 rounded-full ${risk.color} mr-2`}></div>
                       <span className="text-sm text-gray-500">
-                        Risk Level Indicator
+                        {t("riskLevels.indicator")}
                       </span>
                     </div>
                   </div>
@@ -118,7 +120,7 @@ export default function RiskLevelSection() {
         >
           <div className="inline-flex items-center bg-blue-50 px-4 py-2 rounded-full">
             <span className="text-blue-700 font-medium">
-              Our AI provides clear, actionable recommendations for every risk level
+              {t("riskLevels.footerNote")}
             </span>
           </div>
         </motion.div>

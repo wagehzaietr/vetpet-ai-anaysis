@@ -8,6 +8,7 @@ import Image from "next/image";
 import { ArrowRight, Play } from "lucide-react";
 import { Spotlight } from "./ui/Spotlight";
 import HowItWorks from "./How-to-use";
+import Link from "next/link";
 
 export function HeroSectionOne() {
   const t = useTranslations();
@@ -82,30 +83,16 @@ export function HeroSectionOne() {
             >
               {/* Primary CTA */}
               <button
-                className="group relative overflow-hidden rounded-2xl bg-primary p-[1px] shadow-xl transition-all duration-300 hover:shadow-2xl hover:ring-2 hover:ring-primary/30"
+                className="group relative overflow-hidden rounded-2xl bg-primary p-[1px] shadow-xl transition-all duration-300 hover:shadow-2xl hover:ring-2 hover:ring-green-600"
                 aria-label="Get started with AI website builder"
               >
                 <div className="relative flex items-center justify-center gap-2 rounded-[15px] px-8 py-4 font-semibold text-primary-foreground transition-all duration-300">
-                  <span>{t("HomePage.button-text")}</span>
+                  <Link href='/ai-check'>{t("HomePage.button-text")}</Link>
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
 
                 {/* Glow effect */}
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-0 blur transition-opacity duration-300 group-hover:opacity-30" />
-              </button>
-
-              {/* Secondary CTA */}
-              <button
-                className="group flex items-center justify-center gap-3 rounded-2xl border border-border bg-white/90 px-8 py-4 font-semibold text-foreground backdrop-blur-sm transition-all duration-300 hover:bg-white hover:shadow-lg dark:border-border dark:bg-white dark:text-foreground"
-                aria-label="Watch demo video"
-              >
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
-                  <Play
-                    className="h-4 w-4 translate-x-0.5"
-                    fill="currentColor"
-                  />
-                </div>
-                <span>{t("HomePage.button-link")}</span>
               </button>
             </motion.div>
 
