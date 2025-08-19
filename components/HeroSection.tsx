@@ -111,9 +111,9 @@ export function HeroSectionOne() {
           {/* Enhanced Image Section */}
           <motion.div variants={itemVariants} className="relative lg:ml-8">
             {/* Main container with glassmorphism */}
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-white/20 bg-white/80 p-3 shadow-2xl backdrop-blur-sm dark:border-white/10 dark:bg-white/90">
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-black/20 bg-black/20 p-3 shadow-2xl backdrop-blur-sm dark:border-white/10 dark:bg-white/90">
               {/* Inner frame */}
-              <div className="overflow-hidden rounded-[1.25rem] border border-slate-200/60 bg-white shadow-inner">
+              <div className="overflow-hidden rounded-[1.25rem] border border-black/30 bg-card shadow-inner">
                 <div className="relative">
                   <Image
                     src="/hero-img.png"

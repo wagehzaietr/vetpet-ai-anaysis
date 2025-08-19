@@ -61,7 +61,7 @@ export default function FeaturesSection() {
             {t("featuresSection.title")}
           </motion.h2>
           <motion.p 
-            className="text-lg text-gray-600 max-w-2xl mx-auto"
+            className="text-lg text-text max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3 }}
@@ -89,11 +89,11 @@ export default function FeaturesSection() {
                     >
                       <feature.icon className="h-6 w-6 text-blue-600" />
                     </motion.div>
-                    <CardTitle className="text-xl">{t(`featuresSection.items.${feature.key}.title`)}</CardTitle>
+                    <CardTitle className="text-xl text-secondary">{t(`featuresSection.items.${feature.key}.title`)}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-600">{t(`featuresSection.items.${feature.key}.desc`)}</p>
+                  <p className="text-text">{t(`featuresSection.items.${feature.key}.desc`)}</p>
                 </CardContent>
               </Card>
             </motion.div>

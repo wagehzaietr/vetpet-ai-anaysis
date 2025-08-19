@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+
 export default function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
@@ -25,16 +26,18 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <Select
-      onValueChange={switchLocale}
-    >
-      <SelectTrigger className="border-white/20 text-white bg-card">
-        <SelectValue  placeholder={locale === 'ar' ? 'العربية' : 'English'} />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectItem className={locale === 'en' ? 'bg-primary text-primary-foreground' : ''}  value="en">English</SelectItem>
-        <SelectItem className={locale === 'ar' ? 'bg-primary text-primary-foreground' : ''} value="ar">Arabic</SelectItem>
-      </SelectContent>
-    </Select>
+    <>
+<Select onValueChange={switchLocale}>
+  <SelectTrigger className="border-white/30 bg-background">
+    <SelectValue 
+      placeholder={locale === 'ar' ? 'العربية' : 'English'} 
+    />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem className={locale === 'en' ? 'bg-secondary text-black' : ''} value="en">English</SelectItem>
+    <SelectItem className={locale === 'ar' ? 'bg-secondary text-black' : ''} value="ar">Arabic</SelectItem>
+  </SelectContent>
+</Select>
+</>
   );
 }

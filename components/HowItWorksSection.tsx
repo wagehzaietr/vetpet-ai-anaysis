@@ -35,7 +35,7 @@ export default function HowItWorks() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">{t("howItWorks.title")}</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-text max-w-2xl mx-auto leading-relaxed">
           {t("howItWorks.subtitle.p1")}
           </p>
         </motion.div>
@@ -78,7 +78,7 @@ export default function HowItWorks() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <p className="text-sm font-medium">{t("howItWorks.trustedBy")}</p>
+                    <p className="text-sm text-secondary font-medium">{t("howItWorks.trustedBy")}</p>
                     <div className="flex items-center">
                       {[...Array(5)].map((_, i) => (
                         <svg
@@ -118,7 +118,7 @@ export default function HowItWorks() {
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <Card className="p-6 border-0 shadow-md hover:shadow-lg transition-shadow duration-300 bg-card/80 backdrop-blur-sm">
+                    <Card className="p-6 border-0 shadow-md hover:shadow-lg transition-shadow duration-300 bg-card backdrop-blur-sm">
                       <div className="flex items-start">
                         <div className="flex-shrink-0 mr-4">
                           <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -132,9 +132,9 @@ export default function HowItWorks() {
                                 {index + 1}
                               </span>
                             </div>
-                            <h3 className="text-lg font-semibold text-white">{t(step.titleKey as string)}</h3>
+                            <h3 className="text-lg font-semibold text-secondary">{t(step.titleKey as string)}</h3>
                           </div>
-                          <p className="text-white/70">{t(step.descKey as string)}</p>
+                          <p className="text-text">{t(step.descKey as string)}</p>
                         </div>
                       </div>
                     </Card>

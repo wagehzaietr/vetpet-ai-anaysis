@@ -16,7 +16,7 @@ export default function TestimonialsSection() {
   return (
     <section className="py-20 px-4  relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0  opacity-30"></div>
+      <div className="absolute inset-0 opacity-30"></div>
 
       <div className="max-w-7xl mx-auto relative">
         {/* Header */}
@@ -35,7 +35,7 @@ export default function TestimonialsSection() {
             </span>
           </h2>
 
-          <p className="text-[17px] text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-[17px] text-text max-w-3xl mx-auto leading-relaxed mb-8">
             {t("testimonials.subtitle")}
           </p>
         </motion.div>
