@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 
 import { HeroSectionOne } from "../../components/HeroSection";
-import HowItWorks from "@/components/How-to-use";
+import HowItWorks from "@/components/HowItWorksSection";
 import FeaturesSection from "@/components/Featuers";
 import RiskLevelSection from "@/components/riskLevelsSection";
 import TrustSection from "@/components/TrustSection";
@@ -13,7 +13,7 @@ export default function Home() {
   const t = useTranslations("HomePage");
 
   return (
-    <>
+    <main>
       <HeroSectionOne />
       <HowItWorks />
       <FeaturesSection />
@@ -22,6 +22,6 @@ export default function Home() {
       <TestimonialsSection/>
       <FAQSection />
       <CallToActionSection buttonText="Start Health Check" buttonLink="/health-check" />
-    </>
+    </main>
   );
 }

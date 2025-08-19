@@ -12,10 +12,10 @@ import Image from "next/image";
 export const HeroHeader = () => {
   const t = useTranslations();
   const menuItems = [
-    { name: t("header.features"), href: "/ai-checks" },
+    { name: t("header.features"), href: "#features" },
     { name: t("header.solution"), href: "#how-it-works" },
-    { name: t("header.pricing"), href: "#link" },
-    { name: t("header.about"), href: "#link" },
+    { name: t("header.faq"), href: "#faq" },
+    { name: t("header.about"), href: "#trust" },
   ];
   const [menuState, setMenuState] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -64,6 +64,7 @@ export const HeroHeader = () => {
                   <li key={index}>
                     <Link
                       href={item.href}
+                      onClick={() => setMenuState(false)}
                       className="text-foreground hover:text-accent-foreground block duration-150"
                     >
                       <span>{item.name}</span>
@@ -80,6 +81,7 @@ export const HeroHeader = () => {
                     <li key={index}>
                       <Link
                         href={item.href}
+                        onClick={() => setMenuState(false)}
                         className="text-muted-foreground hover:text-accent-foreground block duration-150"
                       >
                         <span>{item.name}</span>
@@ -95,7 +97,7 @@ export const HeroHeader = () => {
                   size="sm"
                   className={cn(isScrolled ? "lg:inline-flex" : "hidden")}
                 >
-                  <Link href="#">
+                  <Link href="/ai-checks" onClick={() => setMenuState(false)}>
                     <span>{t("header.getStarted")}</span>
                   </Link>
                 </Button>

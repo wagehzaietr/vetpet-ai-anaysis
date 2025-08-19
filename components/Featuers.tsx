@@ -43,7 +43,7 @@ export default function FeaturesSection() {
   });
 
   return (
-    <section className="py-16 px-4 overflow-hidden">
+    <section id="features" className="py-16 px-4 overflow-hidden scroll-mt-28">
       <div className="max-w-7xl mx-auto">
         <motion.div
           ref={ref}

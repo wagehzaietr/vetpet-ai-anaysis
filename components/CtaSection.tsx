@@ -1,7 +1,7 @@
 'use client'
 import { motion, cubicBezier, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ArrowRight, Shield, Clock, Heart, Sparkles } from "lucide-react";
+import {  Shield, Clock, Heart,  } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 

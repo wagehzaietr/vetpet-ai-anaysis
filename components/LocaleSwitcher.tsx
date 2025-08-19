@@ -6,9 +6,7 @@ import { useLocale } from "next-intl";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
@@ -18,11 +16,9 @@ export default function LocaleSwitcher() {
   const pathname = usePathname();
   const locale = useLocale();
 
-  // Define available locales
   const otherLocale = locale === "en" ? "ar" : "en";
 
   function switchLocale() {
-    // Replace the first segment of the path with the new locale
     const segments = pathname.split("/");
     segments[1] = otherLocale; 
     router.push(segments.join("/"));

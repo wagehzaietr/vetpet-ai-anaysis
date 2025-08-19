@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
-import { cn } from "@/lib/utils";
 
 import { motion, type Variants } from "framer-motion";
-import {  useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Spotlight } from "./ui/Spotlight";
-import HowItWorks from "./How-to-use";
 import Link from "next/link";
 
 export function HeroSectionOne() {
@@ -38,13 +36,7 @@ export function HeroSectionOne() {
 
   return (
     <div className="relative overflow-hidden">
-    
-
-        <Spotlight
-        className="-top-40 right-0 md:-top-20 md:left-20"
-        fill="white"
-        />
-      
+      <Spotlight />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
         <motion.div
@@ -63,7 +55,9 @@ export function HeroSectionOne() {
               className="mt-8 text-5xl pt-12 text-center md:text-start font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl xl:text-7xl dark:text-white"
             >
               <span className="text-white">
-                <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">{t("HomePage.title")}</span>
+                <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">
+                  {t("HomePage.title")}
+                </span>
                 {t("HomePage.heading")}
               </span>
             </motion.h1>
@@ -86,13 +80,12 @@ export function HeroSectionOne() {
                 className="group relative overflow-hidden rounded-2xl bg-primary p-[1px] shadow-xl transition-all duration-300 hover:shadow-2xl hover:ring-2 hover:ring-green-600"
                 aria-label="Get started with AI website builder"
               >
+                <Link href="/ai-checks">
                 <div className="relative flex items-center justify-center gap-2 rounded-[15px] px-8 py-4 font-semibold text-primary-foreground transition-all duration-300">
-                  <Link href='/ai-check'>{t("HomePage.button-text")}</Link>
+                  {t("HomePage.button-text")}
                   <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
-
-                {/* Glow effect */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-secondary opacity-0 blur transition-opacity duration-300 group-hover:opacity-30" />
+                </Link>
               </button>
             </motion.div>
 
@@ -131,16 +124,12 @@ export function HeroSectionOne() {
                     loading="eager"
                     priority
                   />
-
                 </div>
               </div>
             </div>
-
-
           </motion.div>
         </motion.div>
       </div>
-   
     </div>
   );
 }

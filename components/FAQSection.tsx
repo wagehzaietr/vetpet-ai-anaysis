@@ -2,14 +2,14 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { ChevronDown, HelpCircle, MessageCircle, Mail } from "lucide-react";
+import { Stethoscope, PawPrint, BarChart3, Siren } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const faqs = [
-  { questionKey: "items.isVet.question", answerKey: "items.isVet.answer", icon: "🤖" },
-  { questionKey: "items.supportedPets.question", answerKey: "items.supportedPets.answer", icon: "🐕" },
-  { questionKey: "items.accuracy.question", answerKey: "items.accuracy.answer", icon: "📊" },
-  { questionKey: "items.emergencies.question", answerKey: "items.emergencies.answer", icon: "🚨" }
+  { questionKey: "items.isVet.question", answerKey: "items.isVet.answer", icon: <Stethoscope className="w-6 h-6 text-blue-600" /> },
+  { questionKey: "items.supportedPets.question", answerKey: "items.supportedPets.answer", icon: <PawPrint className="w-6 h-6 text-green-600" /> },
+  { questionKey: "items.accuracy.question", answerKey: "items.accuracy.answer", icon: <BarChart3 className="w-6 h-6 text-purple-600" /> },
+  { questionKey: "items.emergencies.question", answerKey: "items.emergencies.answer", icon: <Siren className="w-6 h-6 text-amber-600" /> }
 ];
 
 const containerVariants = {
@@ -42,7 +42,7 @@ export default function FAQSection() {
   });
 
   return (
-    <section className="py-20 px-4 relative overflow-hidden">
+    <section id="faq" className="py-20 px-4 relative overflow-hidden scroll-mt-28">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,transparent,black,transparent)] opacity-25"></div>
       

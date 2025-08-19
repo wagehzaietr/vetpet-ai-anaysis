@@ -41,7 +41,7 @@ const features = [
 export default function HowItWorks() {
   const t = useTranslations();
   return (
-    <section className="py-20 ">
+    <section id="how-it-works" className="py-20 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <motion.div

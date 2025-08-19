@@ -13,7 +13,7 @@ export default function TrustSection() {
   });
 
   return (
-    <section className="py-16 px-4">
+    <section id="trust" className="py-16 px-4 scroll-mt-28">
       <div className="max-w-6xl mx-auto">
         <motion.div
           ref={ref}

@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## PetCare AI — AI Veterinary Assistant
 
-## Getting Started
+PetCare AI is a bilingual (EN/AR) veterinary assistant for pet owners in Syria. It analyzes symptoms, behavior, and images to provide guidance and urgency assessment. Built with Next.js App Router and next-intl.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- __Bilingual i18n (EN/AR)__ with locale routing and RTL support.
+- __AI analysis flows__: text + image inputs, risk level, recommendations.
+- __SEO optimized__ per-locale metadata (Open Graph, Twitter, robots, alternates).
+- __Responsive UI__ with Tailwind CSS and accessible components.
+- __Sectioned homepage__: Hero, How it works, Features, Risk Levels, Trust, Testimonials, FAQ, CTA.
+
+## Tech Stack
+
+- __Framework__: Next.js 15 (App Router)
+- __Internationalization__: next-intl 4
+- __UI__: React 19, Tailwind CSS 4, Radix UI, Lucide Icons, Framer Motion
+- __AI__: AI SDK (@ai-sdk/*) [optional based on your integration]
+
+## Project Structure
+
+```
+app/
+  [locale]/
+    layout.tsx      # Root layout with i18n + SEO (generateMetadata)
+    page.tsx        # Home page sections
+components/
+  ...               # Reusable UI and site sections
+i18n/
+  routing.ts        # locales and defaultLocale
+messages/
+  en.json, ar.json  # translation messages
+lib/
+  utils.ts          # utilities
+public/
+  ...               # static assets (favicon, logo, etc.)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Internationalization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Locales are defined in `i18n/routing.ts` (`en`, `ar`).
+- Pages live under `app/[locale]/` and read `params.locale`.
+- Use `useTranslations()` from `next-intl` in components/pages.
+- RTL is automatically applied for `ar` via `dir="rtl"` in `RootLayout`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## SEO Configuration
 
-## Learn More
+Implemented in `app/[locale]/layout.tsx` via `generateMetadata`:
 
-To learn more about Next.js, take a look at the following resources:
+- __Title template__: `%s | PetCare AI`
+- __Locale-aware description__ and keywords
+- __Open Graph__ and __Twitter__ images (`/headerlogo.png`)
+- __Robots__ and Googlebot directivess
+- __Alternates__: canonical + language URLs for `en` and `ar`
+- __metadataBase__: uses `NEXT_PUBLIC_SITE_URL` if provided
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Update brand messaging in one place inside `generateMetadata`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment Variables
 
-## Deploy on Vercel
+Create `.env.local` (not committed) and set as needed:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+# AI provider keys (optional, depending on your usage)
+# GOOGLE_GENERATIVE_AI_API_KEY=...
+# OPENAI_API_KEY=...
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Scripts
+
+```
+npm run dev     # Start dev server (http://localhost:3000)
+npm run build   # Production build
+npm run start   # Start production server
+npm run lint    # Lint
+```
+
+## Development
+
+1. Install deps: `npm install`
+2. Run locally: `npm run dev`
+3. Edit content:
+   - Text/UI: files in `components/`
+   - Translations: `messages/en.json`, `messages/ar.json`
+   - SEO/i18n: `app/[locale]/layout.tsx`, `i18n/routing.ts`
+
+## Deployment
+
+- Set `NEXT_PUBLIC_SITE_URL` in your hosting environment.
+- Typical platforms: Vercel, Netlify. For Node hosting, run `npm run build && npm run start`.
+
+## Troubleshooting
+
+- __Wrong text direction__: ensure `locale === 'ar'` sets `dir="rtl"` in `RootLayout`.
+- __Incorrect URLs in OG tags__: set `NEXT_PUBLIC_SITE_URL`.
+- __Missing translations__: add keys to `messages/*.json` and re-run dev server.

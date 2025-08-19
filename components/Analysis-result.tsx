@@ -1,5 +1,5 @@
 import React from "react";
-import { Stethoscope, AlertTriangle, List, Percent, Heart, Home, Clock } from "lucide-react";
+import {  AlertTriangle, List, Percent, Heart, Home, Clock } from "lucide-react";
 import { useTranslations } from 'next-intl';
 
 interface AnalysisData {

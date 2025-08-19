@@ -1,10 +1,9 @@
 'use client'
 /* eslint-disable @next/next/no-img-element */
 import { cn } from "@/lib/utils";
-import { Marquee } from "@/components/ui/marquee";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { Star, Heart, Users } from "lucide-react";
+import { Star } from "lucide-react";
 import { Marquee3D } from "@/components/Marquee3D";
 import {reviews} from '@/app/data/data'
 import { useTranslations } from "next-intl";

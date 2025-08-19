@@ -5,7 +5,6 @@ import { DefaultChatTransport } from "ai";
 import { useTranslations } from "next-intl";
 import ImageAnalysis from "./Image-analysis";
 import PetAnalysis from "./Analysis-result";
-import HelpSection from "./How-to-use";
 import { ShimmeringText } from "./ui/ShimmeringText";
 
 function AiAnalysis() {
