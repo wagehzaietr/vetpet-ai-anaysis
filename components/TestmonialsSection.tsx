@@ -10,11 +10,6 @@ import { useTranslations } from "next-intl";
 // Pet-focused testimonials
 
 
-const firstRow = reviews.slice(0, Math.ceil(reviews.length / 4));
-const secondRow = reviews.slice(Math.ceil(reviews.length / 4), Math.ceil(reviews.length / 2));
-const thirdRow = reviews.slice(Math.ceil(reviews.length / 2), Math.ceil(3 * reviews.length / 4));
-const fourthRow = reviews.slice(Math.ceil(3 * reviews.length / 4));
-
 const ReviewCard = ({
   img,
   name,
@@ -62,7 +57,7 @@ const ReviewCard = ({
       </div>
       
       <blockquote className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-        "{body}"
+        {body}
       </blockquote>
     </figure>
   );

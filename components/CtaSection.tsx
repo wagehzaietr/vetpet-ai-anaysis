@@ -5,10 +5,6 @@ import {  Shield, Clock, Heart,  } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-const route = () =>{
-    
-}
-
 const features = [
   { icon: Clock, key: "features.fastResults" },
   { icon: Shield, key: "features.trusted" },
@@ -31,10 +27,6 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.6,
-      ease: cubicBezier(0.25, 0.46, 0.45, 0.94)
-    }
   }
 };
 
@@ -42,11 +34,6 @@ const floatingVariants: Variants = {
   animate: {
     y: [-10, 10, -10],
     rotate: [0, 5, 0, -5, 0],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }
   }
 };
 interface CallToActionProps {
@@ -55,7 +42,7 @@ interface CallToActionProps {
   }
 
   
-export default function CallToActionSection({buttonText, buttonLink}: CallToActionProps) {
+export default function CallToActionSection() {
   const t = useTranslations();
   const [ref, inView] = useInView({
     triggerOnce: true,

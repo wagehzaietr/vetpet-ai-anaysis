@@ -23,20 +23,6 @@ const steps = [
   },
 ];
 
-const features = [
-  {
-    icon: <CheckCircle className="w-6 h-6" />,
-    title: "24/7 Availability",
-    description:
-      "Get instant veterinary insights anytime, anywhere with our AI assistant.",
-  },
-  {
-    icon: <Brain className="w-6 h-6" />,
-    title: "Professional Grade AI",
-    description:
-      "Trained on extensive veterinary data to provide accurate health assessments.",
-  },
-];
 
 export default function HowItWorks() {
   const t = useTranslations();

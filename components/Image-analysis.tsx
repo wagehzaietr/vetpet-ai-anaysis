@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { ShimmeringText } from "./ui/ShimmeringText";
 import AITextLoading from "./ui/ai-text-loading";
+import Image from "next/image";
 
 function ImageAnalysis({
   handleAnalyzeClick,
@@ -151,7 +151,10 @@ function ImageAnalysis({
                     key={idx}
                     className="relative w-full aspect-video overflow-hidden rounded-md border"
                   >
-                    <img
+                    <Image
+                      width={500}
+                      height={500}
+                      loading="eager"
                       src={src}
                       alt={`preview-${idx}`}
                       className="w-full h-full object-cover"

@@ -1,6 +1,7 @@
 import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 import { Star } from "lucide-react";
+import Image from "next/image";
 
 interface Review {
   img: string;
@@ -125,7 +126,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-3 mb-3">
-        <img className="rounded-full ring-2 ring-blue-100" width="48" height="48" alt="" src={img} />
+        <Image className="rounded-full ring-2 ring-blue-100" width={500} height={500} alt="users-images" src={img} />
         <div className="flex flex-col flex-1">
           <div className="flex items-center gap-2">
             <figcaption className="text-base font-semibold text-gray-900 dark:text-white">
@@ -145,7 +146,7 @@ const ReviewCard = ({
       </div>
 
       <blockquote className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-        "{body}"
+        {body}
       </blockquote>
     </figure>
   );

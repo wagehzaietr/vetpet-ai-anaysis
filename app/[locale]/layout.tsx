@@ -32,7 +32,7 @@ export async function generateMetadata({
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
-  const { locale } = params;
+  const { locale } = await params;
   const isAr = locale === "ar";
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const siteName = "PetCare AI";
@@ -110,7 +110,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const { locale } = params;
+  const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }

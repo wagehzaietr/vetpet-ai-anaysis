@@ -21,7 +21,7 @@ export default function Home() {
       <TrustSection />
       <TestimonialsSection/>
       <FAQSection />
-      <CallToActionSection buttonText="Start Health Check" buttonLink="/health-check" />
+      <CallToActionSection />
     </main>
   );
 }

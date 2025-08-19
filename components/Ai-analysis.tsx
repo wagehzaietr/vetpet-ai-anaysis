@@ -106,6 +106,7 @@ function AiAnalysis() {
       setRiskLevel("call_doctor");
     }
     setShowResults(true);
+    riskLevel 
   };
 
   const renderResults = () => {
@@ -124,8 +125,8 @@ function AiAnalysis() {
         const jsonString = jsonMatch ? jsonMatch[1].trim() : textPart.trim();
 
         analysisData = JSON.parse(jsonString);
-      } catch (e) {
-        // fallback to plain text
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
         analysisData = { text: textPart };
       }
     }
