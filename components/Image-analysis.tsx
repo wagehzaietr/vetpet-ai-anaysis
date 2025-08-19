@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 import { ShimmeringText } from "./ui/ShimmeringText";
+import AITextLoading from "./ui/ai-text-loading";
 
 function ImageAnalysis({
   handleAnalyzeClick,
@@ -164,14 +165,14 @@ function ImageAnalysis({
                 ))}
               </div>
             )}
-
-            <button
+              
+            {isBusy ? <div><AITextLoading className="text-primary/70"/></div> : <button
               onClick={handleAnalyzeClick}
               className="bg-primary text-primary-foreground rounded-lg px-4 py-2 w-full"
               disabled={isBusy}
-            >
-              {isBusy ? <ShimmeringText text={t("thinking")}/> : t("analyze_image")}
-            </button>
+              >
+              {t("analyze_image")}
+            </button>}
           </div>
         </div>
 

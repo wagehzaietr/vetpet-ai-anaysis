@@ -1,7 +1,6 @@
 import { persona } from "@/instruction";
 import { google } from "@ai-sdk/google";
 import { convertToModelMessages, streamText, UIMessage } from "ai";
-import { z } from "zod";
 
 
 

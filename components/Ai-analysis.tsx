@@ -18,35 +18,48 @@ function AiAnalysis() {
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
   const [clearedCount, setClearedCount] = useState(0);
 
-  const { messages, sendMessage, status } = useChat({
-    transport: new DefaultChatTransport({
-      api: "/api/ai-analysis",
-    }),
+  // 1) Normal chat hook -> general conversation (no medical analysis UI)
+  const {
+    messages: chatMessages,
+    sendMessage: sendChatMessage,
+    status: chatStatus,
+  } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+  });
+
+  // 2) Analysis hook -> only used when the user explicitly analyzes
+  const {
+    messages: analysisMessages,
+    sendMessage: sendAnalysisMessage,
+    status: analysisStatus,
+  } = useChat({
+    transport: new DefaultChatTransport({ api: "/api/ai-analysis" }),
     onFinish: () => setShowResults(true),
   });
 
   const ClearChat = () =>{
-    setClearedCount(messages.length);
+    setClearedCount(chatMessages.length);
   }
 
-  const isBusy = status === "submitted" || status === "streaming";
+  const isBusyChat = chatStatus === "submitted" || chatStatus === "streaming";
+  const isBusyAnalysis = analysisStatus === "submitted" || analysisStatus === "streaming";
 
   // Auto-scroll to the latest message
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+  }, [chatMessages]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!input.trim() && !(files && files.length)) return; // avoid empty submissions
-    sendMessage({ text: input.trim(), files });
+    // Normal chat should not include files; keep it text-only for clarity
+    sendChatMessage({ text: input.trim() });
     setInput("");
-    setFiles(undefined);
-    if (fileInputRef.current) fileInputRef.current.value = "";
+    // Do not clear files on normal chat send
   };
 
   // Messages to display after a clear action
-  const visibleMessages = messages.slice(clearedCount);
+  const visibleMessages = chatMessages.slice(clearedCount);
 
   // Separate click handler for the Analyze Image button (button onClick expects MouseEvent)
   const handleAnalyzeClick: React.MouseEventHandler<HTMLButtonElement> = (
@@ -54,9 +67,10 @@ function AiAnalysis() {
   ) => {
     e.preventDefault();
     // Clear visible chat by skipping messages up to current length
-    setClearedCount(messages.length);
+    setClearedCount(chatMessages.length);
     if (!input.trim() && !(files && files.length)) return; // avoid empty submissions
-    sendMessage({ text: input.trim(), files });
+    // Send to analysis endpoint, which will trigger results view
+    sendAnalysisMessage({ text: input.trim(), files });
     setInput("");
     setFiles(undefined);
     if (fileInputRef.current) {
@@ -95,7 +109,7 @@ function AiAnalysis() {
   };
 
   const renderResults = () => {
-    const latestMessage = messages
+    const latestMessage = analysisMessages
       .filter((m) => m.role === "assistant")
       .slice(-1)[0];
     let analysisData: any = null;
@@ -166,11 +180,10 @@ function AiAnalysis() {
                 <div
                   className="h-96 overflow-y-auto mb-4 border rounded-lg p-4 bg-gray-50"
                   aria-live="polite"
-                  aria-busy={isBusy}
+                  aria-busy={isBusyChat}
                 >
                   {visibleMessages
                     .filter((m) => m.role !== "system")
-                    .filter((m) => m.role !== "assistant")
                     .map((message) => (
                       <div
                         key={message.id}
@@ -201,7 +214,7 @@ function AiAnalysis() {
                         </div>
                       </div>
                     ))}
-                  {isBusy && (
+                  {isBusyChat && (
                     
                     <ShimmeringText text={t("thinking")}/>
                   )}
@@ -222,13 +235,13 @@ function AiAnalysis() {
                     onChange={(e) => setInput(e.target.value)}
                     placeholder={t("chat.placeholder")}
                     type="text"
-                    disabled={isBusy}
+                    disabled={isBusyChat}
                   />
                   <button
                     className={`bg-primary text-primary-foreground rounded-lg px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed`}
                     type="submit"
-                    disabled={isBusy || !input.trim()}
-                    aria-disabled={isBusy || !input.trim()}
+                    disabled={isBusyChat || !input.trim()}
+                    aria-disabled={isBusyChat || !input.trim()}
                     aria-label={t("send")}
                   >
                     {t("send")}
@@ -236,7 +249,7 @@ function AiAnalysis() {
                 </form>
               </div>
 
-              <ImageAnalysis isBusy={isBusy} handleAnalyzeClick={handleAnalyzeClick} fileInputRef={fileInputRef} files={files} setFiles={setFiles} symptoms={symptoms} setSymptoms={setSymptoms} assessSymptoms={assessSymptoms}  />
+              <ImageAnalysis isBusy={isBusyAnalysis} handleAnalyzeClick={handleAnalyzeClick} fileInputRef={fileInputRef} files={files} setFiles={setFiles} symptoms={symptoms} setSymptoms={setSymptoms} assessSymptoms={assessSymptoms}  />
             </div>
           </>
         )}
@@ -246,3 +259,4 @@ function AiAnalysis() {
 }
 
 export default AiAnalysis;
+
