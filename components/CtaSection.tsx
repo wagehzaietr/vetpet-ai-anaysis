@@ -1,5 +1,5 @@
 'use client'
-import { motion, cubicBezier, type Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {  Shield, Clock, Heart,  } from "lucide-react";
 import Link from "next/link";
@@ -30,16 +30,6 @@ const itemVariants: Variants = {
   }
 };
 
-const floatingVariants: Variants = {
-  animate: {
-    y: [-10, 10, -10],
-    rotate: [0, 5, 0, -5, 0],
-  }
-};
-interface CallToActionProps {
-    buttonText: string;
-    buttonLink: string;
-  }
 
   
 export default function CallToActionSection() {

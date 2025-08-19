@@ -1,9 +1,10 @@
 "use client";
 import { Card } from "@/components/ui/card";
-import { Brain, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { UploadSvg, BarinSvg, ChatSvg } from "./icons";
 import { useTranslations } from "next-intl";
+
+
 
 const steps = [
   {
@@ -131,9 +132,9 @@ export default function HowItWorks() {
                                 {index + 1}
                               </span>
                             </div>
-                            <h3 className="text-lg font-semibold text-white">{t(step.titleKey as any)}</h3>
+                            <h3 className="text-lg font-semibold text-white">{t(step.titleKey as string)}</h3>
                           </div>
-                          <p className="text-white/70">{t(step.descKey as any)}</p>
+                          <p className="text-white/70">{t(step.descKey as string)}</p>
                         </div>
                       </div>
                     </Card>

@@ -12,7 +12,7 @@ function AiAnalysis() {
   const [input, setInput] = useState("");
   const [files, setFiles] = useState<FileList | undefined>(undefined);
   const [symptoms, setSymptoms] = useState("");
-  const [riskLevel, setRiskLevel] = useState<string | null>(null);
+  const [, setRiskLevel] = useState<string | null>(null);
   const [showResults, setShowResults] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -27,6 +27,11 @@ function AiAnalysis() {
     transport: new DefaultChatTransport({ api: "/api/chat" }),
   });
 
+  interface AnalysisData {
+    risk?: string;
+    score?: number;
+    text?: string; // allow fallback
+  }
   // 2) Analysis hook -> only used when the user explicitly analyzes
   const {
     messages: analysisMessages,
@@ -106,14 +111,13 @@ function AiAnalysis() {
       setRiskLevel("call_doctor");
     }
     setShowResults(true);
-    riskLevel 
   };
 
   const renderResults = () => {
     const latestMessage = analysisMessages
       .filter((m) => m.role === "assistant")
       .slice(-1)[0];
-    let analysisData: any = null;
+      let analysisData: AnalysisData | null = null;
 
     if (latestMessage) {
       const textPart =
@@ -150,7 +154,10 @@ function AiAnalysis() {
 
         {/* Back Button */}
         <button
-          onClick={() => {setShowResults(false), ClearChat()}}
+          onClick={() => {
+            setShowResults(false);
+            ClearChat();
+          }}
           className="mt-6 bg-primary text-primary-foreground rounded-lg px-4 py-2 w-full"
         >
           {t("petAnalysis.back")}
