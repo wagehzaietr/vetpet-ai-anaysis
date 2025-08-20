@@ -136,8 +136,8 @@ function AiAnalysis() {
     }
 
     return (
-      <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6 text-center">
+      <div className="bg-card/20 rounded-lg shadow-lg p-8 max-w-5xl mx-auto">
+        <h2 className="text-2xl text-secondary font-bold mb-6 text-center">
           {t("petAnalysis.resultsTitle")}
         </h2>
 
@@ -145,10 +145,10 @@ function AiAnalysis() {
         {/* Symptoms Reported */}
         {symptoms && (
           <div className="mb-8">
-            <h3 className="text-xl font-semibold mb-4">
+            <h3 className="text-xl text-text font-semibold mb-4">
               {t("petAnalysis.symptomsReported")}
             </h3>
-            <p className="text-gray-700">{symptoms}</p>
+            <p className="text-text">{symptoms}</p>
           </div>
         )}
 
@@ -158,7 +158,7 @@ function AiAnalysis() {
             setShowResults(false);
             ClearChat();
           }}
-          className="mt-6 bg-primary text-primary-foreground rounded-lg px-4 py-2 w-full"
+          className="mt-6 bg-primary text-text rounded-lg px-4 py-2 w-full"
         >
           {t("petAnalysis.back")}
         </button>
@@ -167,26 +167,26 @@ function AiAnalysis() {
   };
 
   return (
-    <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen">
+      <div className="max-w-4xl md:max-w-6xl mx-auto">
         {showResults ? (
           renderResults()
         ) : (
           <>
-            <h1 className="text-3xl font-bold text-center mb-8">
+            <h1 className="text-3xl font-bold text-primary text-center mb-8">
               {t("petAnalysis.title")}
             </h1>
-            <p className="text-center text-gray-600 mb-8">
+            <p className="text-center text-text mb-8">
               {t("petAnalysis.subtitle")}
             </p>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Left Column - Chatbot */}
-              <div className="bg-white rounded-lg shadow-lg p-6">
-                <h2 className="text-xl font-semibold mb-4">
+              <div className="bg-card rounded-lg shadow-lg p-6">
+                <h2 className="text-xl text-secondary font-semibold mb-4">
                   {t("chat.title")}
                 </h2>
                 <div
-                  className="h-96 overflow-y-auto mb-4 border rounded-lg p-4 bg-gray-50"
+                  className="h-96 overflow-y-auto mb-4 border rounded-lg p-4 bg-card"
                   aria-live="polite"
                   aria-busy={isBusyChat}
                 >
@@ -202,8 +202,8 @@ function AiAnalysis() {
                         <div
                           className={`inline-block p-3 rounded-lg max-w-xs md:max-w-md ${
                             message.role === "user"
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-gray-200"
+                              ? "bg-primary text-text"
+                              : "bg-card"
                           }`}
                         >
                           {message.parts.map((part, index) => {
@@ -211,7 +211,7 @@ function AiAnalysis() {
                               return (
                                 <div
                                   key={`${message.id}-${index}`}
-                                  className="whitespace-pre-wrap"
+                                  className="whitespace-pre-wrap text-text-secondary"
                                 >
                                   {part.text}
                                 </div>
@@ -227,7 +227,7 @@ function AiAnalysis() {
                     <ShimmeringText text={t("thinking")}/>
                   )}
                   {visibleMessages.length === 0 && (
-                    <div className="text-gray-500">{t("chat.welcome")}</div>
+                    <div className="text-text/60">{t("chat.welcome")}</div>
                   )}
                   <div ref={messagesEndRef} />
                 </div>
@@ -238,7 +238,7 @@ function AiAnalysis() {
                   </label>
                   <input
                     id="chat-input"
-                    className="flex-1 border border-gray-300 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    className="flex-1 text-text-secondary border border-text/60 rounded-lg p-2 focus:outline-none focus:ring-2 focus:ring-primary/50"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder={t("chat.placeholder")}

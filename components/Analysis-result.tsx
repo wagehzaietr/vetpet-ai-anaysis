@@ -17,7 +17,7 @@ interface PetAnalysisProps {
 }
 
 const getConfidenceColor = (value: number | undefined) => {
-  if (value === undefined || value === null) return "bg-gray-300";
+  if (value === undefined || value === null) return "bg-text";
   if (value >= 80) return "bg-emerald-500";
   if (value >= 50) return "bg-yellow-400";
   return "bg-rose-500";
@@ -34,8 +34,8 @@ const AnalysisSection: React.FC<{
       {icon}
     </div>
     <div className="flex-1">
-      <p className="font-semibold text-gray-800 text-base">{title}</p>
-      <div className="mt-1.5 text-gray-700 text-base">
+      <p className="font-semibold text-text text-sm md:text-base">{title}</p>
+      <div className="mt-1.5 text-text text-[14px] md:text-base">
         {content}
       </div>
     </div>
@@ -54,14 +54,14 @@ const PetAnalysis: React.FC<PetAnalysisProps> = ({ analysisData }) => {
     <div className="mb-10">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-1 h-8 bg-blue-600 rounded-full"></div>
-        <h3 className="text-2xl font-bold text-gray-800">{t("petAnalysis.aiAnalysis")}</h3>
+        <h3 className="text-2xl font-bold text-text">{t("petAnalysis.aiAnalysis")}</h3>
       </div>
       
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+      <div className="bg-background rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-md">
         <div className="p-6">
           {"text" in analysisData && analysisData.text ? (
             <div className="prose max-w-none">
-              <p className="text-gray-700 whitespace-pre-wrap leading-relaxed text-lg">
+              <p className="text-text whitespace-pre-wrap leading-relaxed text-lg">
                 {analysisData.text}
               </p>
             </div>
@@ -121,7 +121,7 @@ const PetAnalysis: React.FC<PetAnalysisProps> = ({ analysisData }) => {
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-gray-500 italic">{t("petAnalysis.noRecommendations")}</p>
+                      <p className="text-text italic">{t("petAnalysis.noRecommendations")}</p>
                     )
                   }
                 />
@@ -133,15 +133,15 @@ const PetAnalysis: React.FC<PetAnalysisProps> = ({ analysisData }) => {
                     <Percent size={18} className="text-sky-600" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-semibold text-gray-800 text-base mb-2.5">{t("petAnalysis.confidence")}</p>
+                    <p className="font-semibold text-text text-base mb-2.5">{t("petAnalysis.confidence")}</p>
                     <div className="flex items-center gap-3">
-                      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                      <div className="w-full bg-background rounded-full h-3 overflow-hidden">
                         <div
                           className={`${barColor} h-3 rounded-full transition-all duration-700 ease-out`}
                           style={{ width: `${confidence}%` }}
                         />
                       </div>
-                      <span className="text-gray-700 font-medium text-sm min-w-[44px] text-right">
+                      <span className="text-text font-medium text-sm min-w-[44px] text-right">
                         {confidence}%
                       </span>
                     </div>
@@ -153,7 +153,7 @@ const PetAnalysis: React.FC<PetAnalysisProps> = ({ analysisData }) => {
           
           {Object.keys(analysisData).length === 0 && (
             <div className="py-4 text-center">
-              <p className="text-gray-500 italic text-base">{t("petAnalysis.noAnalysisInfo")}</p>
+              <p className="text-text italic text-base">{t("petAnalysis.noAnalysisInfo")}</p>
             </div>
           )}
         </div>

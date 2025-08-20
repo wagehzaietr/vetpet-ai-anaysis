@@ -63,10 +63,10 @@ function ImageAnalysis({
     <div>
       <div className="space-y-8">
         {/* Image Analysis */}
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">{t("image_analysis")}</h2>
+        <div className="bg-card rounded-lg shadow-lg p-6">
+          <h2 className="text-xl text-secondary font-semibold mb-4">{t("image_analysis")}</h2>
           <div className="mb-6">
-            <label className="block mb-2 font-medium">
+            <label className="block text-text mb-2 font-medium">
               {t("upload_medical_image")}
             </label>
 
@@ -94,7 +94,7 @@ function ImageAnalysis({
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="w-10 h-10 text-gray-400 mb-2"
+                className="w-10 h-10 text-text mb-2"
                 aria-hidden
               >
                 <path
@@ -103,12 +103,12 @@ function ImageAnalysis({
                   d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 7.5L12 3m0 0L7.5 7.5M12 3v13.5"
                 />
               </svg>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-text">
                 <span className="font-medium text-primary">{t("choose_file")}</span>
                 <span className="mx-1">{t("or")}</span>
                 <span className="font-medium">{t("drag_drop_here")}</span>
               </p>
-              <p className="text-xs text-gray-400 mt-1">PNG, JPG, JPEG • {t("multiple")}</p>
+              <p className="text-xs text-text mt-1">PNG, JPG, JPEG • {t("multiple")}</p>
 
               {/* Hidden input to keep native selection */}
               <input
@@ -122,7 +122,7 @@ function ImageAnalysis({
             </div>
 
             {/* File status */}
-            <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+            <div className="flex items-center justify-between text-sm text-text mb-4">
               <span>
                 {files?.length
                   ? `${files.length} ${t("files_selected")}`
@@ -160,7 +160,7 @@ function ImageAnalysis({
                       className="w-full h-full object-cover"
                     />
                     {files && (
-                      <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white text-[10px] px-1 py-0.5 truncate">
+                      <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-text text-[10px] px-1 py-0.5 truncate">
                         {Array.from(files)[idx]?.name}
                       </div>
                     )}

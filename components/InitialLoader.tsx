@@ -28,7 +28,7 @@ export default function InitialLoader() {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center">
+    <div className="fixed inset-0 z-[9999] bg-black flex items-center justify-center">
       <DynamicText />
     </div>
   );

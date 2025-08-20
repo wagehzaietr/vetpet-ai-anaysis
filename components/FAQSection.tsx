@@ -58,7 +58,7 @@ export default function FAQSection() {
           <h2 className="text-3xl md:text-4xl bg-gradient-to-r from-primary to-green-600 text-transparent bg-clip-text font-bold  mb-6">
             {t("faq.title")}
           </h2>
-          <p className=" text-gray-600 max-w-2xl mx-auto leading-relaxed">
+          <p className=" text-text max-w-2xl mx-auto leading-relaxed">
             {t("faq.subtitle")}
           </p>
         </motion.div>
@@ -83,14 +83,14 @@ export default function FAQSection() {
               >
                 <AccordionItem 
                   value={`item-${index}`} 
-                  className="border-0 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-gray-100/50 overflow-hidden hover:shadow-xl hover:shadow-gray-100/60 transition-all duration-300"
+                  className="border-0 bg-card backdrop-blur-sm rounded-2xl shadow-lg shadow-card/80 overflow-hidden hover:shadow-xl hover:shadow-card/70 transition-all duration-300"
                 >
-                  <AccordionTrigger className="px-8 py-6 hover:no-underline [&[data-state=open]]:border-b border-gray-100">
+                  <AccordionTrigger className="px-8 py-6 hover:no-underline [&[data-state=open]]:border-b border-text">
                     <div className="flex items-center gap-4 text-left w-full">
                       <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-xl flex items-center justify-center text-xl group-hover:scale-110 transition-transform duration-300">
                         {faq.icon}
                       </div>
-                      <span className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 text-lg">
+                      <span className="font-semibold text-secondary  transition-colors duration-300 text-lg">
                         {t(`faq.${faq.questionKey}`)}
                       </span>
                     </div>
@@ -102,7 +102,7 @@ export default function FAQSection() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ duration: 0.3, delay: 0.1 }}
-                      className="text-gray-600 leading-relaxed text-base ml-16"
+                      className="text-text leading-relaxed text-base ml-16"
                     >
                       {t(`faq.${faq.answerKey}`)}
                     </motion.div>
