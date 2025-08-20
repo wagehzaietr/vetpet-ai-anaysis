@@ -32,7 +32,7 @@ function TrustCard({ type, title, children, index }: {
     <motion.div
       custom={index}
       variants={cardVariants}
-      className="bg-card p-6 rounded-xl shadow-md border border-gray-100"
+      className="bg-card p-6 rounded-xl shadow-md "
     >
       <div className="flex items-center mb-4">
         <div className={`p-2 ${bg} rounded-lg mr-3`}>

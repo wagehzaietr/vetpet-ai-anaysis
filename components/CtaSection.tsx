@@ -40,7 +40,7 @@ export default function CallToActionSection() {
   });
 
   return (
-    <section className="py-20 px-4relative overflow-hidden">
+    <section className="py-20 px-3 relative overflow-hidden">
       {/* Background decorations */}
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] opacity-20"></div>
       
@@ -59,7 +59,7 @@ export default function CallToActionSection() {
           {/* Main headline */}
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
+            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
           >
             <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">
               {t("ctaSection.titleTop")}
@@ -71,7 +71,7 @@ export default function CallToActionSection() {
           {/* Subheading */}
           <motion.p
             variants={itemVariants}
-            className="text-[17px] text-text mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-[15px] px-4 text-text mb-8 max-w-3xl mx-auto leading-relaxed"
           >
             {t("ctaSection.subtitle")}
           </motion.p>
@@ -111,7 +111,7 @@ export default function CallToActionSection() {
           {/* Trust indicators */}
           <motion.div
             variants={itemVariants}
-            className="bg-card backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto shadow-lg shadow-background"
+            className="bg-card hidden sm:block rounded-2xl p-6 max-w-2xl mx-auto shadow-lg shadow-background"
           >
             <p className="text-sm text-secondary mb-4 font-medium">{t("ctaSection.trustBanner")}</p>
             <div className="flex items-center justify-center gap-8 flex-wrap">

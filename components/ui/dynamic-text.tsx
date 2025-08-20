@@ -71,7 +71,7 @@ const DynamicText = () => {
                     <AnimatePresence mode="popLayout">
                         <motion.div
                             key={currentIndex}
-                            className="absolute flex items-center gap-2 text-2xl font-medium text-gray-800 dark:text-gray-200"
+                            className="absolute flex items-center gap-2 text-2xl font-medium text-white dark:text-gray-200"
                             aria-live="off"
                             initial={textVariants.hidden}
                             animate={textVariants.visible}
@@ -86,7 +86,7 @@ const DynamicText = () => {
                         </motion.div>
                     </AnimatePresence>
                 ) : (
-                    <div className="flex items-center gap-2 text-2xl font-medium text-gray-800 dark:text-gray-200">
+                    <div className="flex items-center gap-2 text-2xl font-medium text-white dark:text-gray-200">
                         <div
                             className="h-2 w-2 rounded-full bg-black dark:bg-white"
                             aria-hidden="true"
