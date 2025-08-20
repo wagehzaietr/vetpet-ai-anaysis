@@ -8,6 +8,7 @@ import { HeroHeader } from "../../components/Header";
 import FooterSection from "@/components/Footer";
 import ScrollToTop from "@/components/ui/ScrollToTop";
 import InitialLoader from "@/components/InitialLoader";
+import AnimateOnView from "@/components/AnimateOnView";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -125,6 +126,7 @@ export default async function RootLayout({
     >
       <body className="font-sans">
         <InitialLoader />
+        <AnimateOnView />
         <NextIntlClientProvider>
           <HeroHeader />
           <ScrollToTop />

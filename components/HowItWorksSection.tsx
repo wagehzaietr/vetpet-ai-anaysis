@@ -1,8 +1,6 @@
-"use client";
 import { Card } from "@/components/ui/card";
-import { motion } from "framer-motion";
 import { UploadSvg, BarinSvg, ChatSvg } from "./icons";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 
 
@@ -23,33 +21,23 @@ const steps = [
     descKey: "howItWorks.steps.3.desc",
   },
 ];
-
-
-export default function HowItWorks() {
-  const t = useTranslations();
+export default async function HowItWorks() {
+  const t = await getTranslations();
   return (
     <section id="how-it-works" className="py-20 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-        >
+        <div className="text-center mb-16" data-animate data-delay="100">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">{t("howItWorks.title")}</h2>
           <p className="text-text max-w-2xl mx-auto leading-relaxed">
           {t("howItWorks.subtitle.p1")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Main Content */}
         <div className="flex flex-col justify-center lg:flex-row gap-12 items-center">
           {/* Demo Section - Left */}
-          <motion.div
-            className="lg:w-1/2 w-full"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-          >
+          <div className="lg:w-1/2 w-full" data-animate data-delay="150">
             <div className="relative bg-card rounded-2xl shadow-lg overflow-hidden border border-border">
               <div className="p-6 bg-primary text-primary-foreground">
                 <h3 className="text-xl font-bold mb-2">{t("howItWorks.seeInAction.title")}</h3>
@@ -96,28 +84,16 @@ export default function HowItWorks() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Cards Section - Right */}
-          <motion.div
-            className="lg:w-1/2 w-full"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
+          <div className="lg:w-1/2 w-full" data-animate data-delay="220">
             {/* Steps */}
             <div className="mb-12">
               <h3 className="text-2xl font-bold mb-6">{t("howItWorks.processTitle")}</h3>
               <div className="space-y-6">
                 {steps.map((step, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    viewport={{ once: true }}
-                  >
+                  <div key={index} data-animate data-delay={`${300 + index * 100}`}>
                     <Card className="p-6 border-0 shadow-md hover:shadow-lg transition-shadow duration-300 bg-card backdrop-blur-sm">
                       <div className="flex items-start">
                         <div className="flex-shrink-0 mr-4">
@@ -138,11 +114,11 @@ export default function HowItWorks() {
                         </div>
                       </div>
                     </Card>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

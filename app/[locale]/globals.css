@@ -207,3 +207,18 @@ html {
     @apply bg-background text-foreground;
   }
 }
+
+/* Animation helpers for server components: elements start hidden and slide/fade in when .is-visible is added */
+@layer utilities {
+  [data-animate] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 700ms ease-out, transform 700ms ease-out;
+    will-change: opacity, transform;
+  }
+
+  .is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

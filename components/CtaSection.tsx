@@ -1,9 +1,6 @@
-'use client'
-import { motion, type Variants } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import {  Shield, Clock, Heart,  } from "lucide-react";
+import { Shield, Clock, Heart } from "lucide-react";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const features = [
   { icon: Clock, key: "features.fastResults" },
@@ -11,33 +8,12 @@ const features = [
   { icon: Heart, key: "features.free" }
 ];
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3
-    }
-  }
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-  }
-};
+ 
 
 
   
-export default function CallToActionSection() {
-  const t = useTranslations();
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
+export default async function CallToActionSection() {
+  const t = await getTranslations();
 
   return (
     <section className="py-20 px-3 relative overflow-hidden">
@@ -47,40 +23,24 @@ export default function CallToActionSection() {
 
 
 
-      <div className="max-w-6xl mx-auto relative">
-        <motion.div
-          ref={ref}
-          variants={containerVariants}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          className="text-center"
-        >
+      <div className="max-w-6xl mx-auto relative text-center" data-animate data-delay="100">
 
           {/* Main headline */}
-          <motion.h2
-            variants={itemVariants}
-            className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight"
-          >
+          <h2 data-animate data-delay="150" className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             <span className="bg-gradient-to-r from-primary to bg-green-400 bg-clip-text text-transparent">
               {t("ctaSection.titleTop")}
             <br />
              {t("ctaSection.titleBottom")}
             </span>
-          </motion.h2>
+          </h2>
 
           {/* Subheading */}
-          <motion.p
-            variants={itemVariants}
-            className="text-[15px] px-4 text-text mb-8 max-w-3xl mx-auto leading-relaxed"
-          >
+          <p data-animate data-delay="250" className="text-[15px] px-4 text-text mb-8 max-w-3xl mx-auto leading-relaxed">
             {t("ctaSection.subtitle")}
-          </motion.p>
+          </p>
 
           {/* Features */}
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12"
-          >
+          <div data-animate data-delay="300" className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-12">
             {features.map((feature, index) => (
               <div key={index} className="flex items-center gap-2 text-text">
                 <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
@@ -89,13 +49,10 @@ export default function CallToActionSection() {
                 <span className="font-medium text-secondary">{t(`ctaSection.${feature.key}`)}</span>
               </div>
             ))}
-          </motion.div>
+          </div>
 
           {/* Main CTA Button */}
-          <motion.button
-            variants={itemVariants}
-            className="mb-12"
-          >
+          <div data-animate data-delay="350" className="mb-12">
             <Link
              href='/ai-checks'
               prefetch={true}
@@ -106,13 +63,10 @@ export default function CallToActionSection() {
 
 
             </Link>
-          </motion.button>
+          </div>
 
           {/* Trust indicators */}
-          <motion.div
-            variants={itemVariants}
-            className="bg-card hidden sm:block rounded-2xl p-6 max-w-2xl mx-auto shadow-lg shadow-background"
-          >
+          <div data-animate data-delay="400" className="bg-card hidden sm:block rounded-2xl p-6 max-w-2xl mx-auto shadow-lg shadow-background">
             <p className="text-sm text-secondary mb-4 font-medium">{t("ctaSection.trustBanner")}</p>
             <div className="flex items-center justify-center gap-8 flex-wrap">
               <div className="text-center">
@@ -130,16 +84,13 @@ export default function CallToActionSection() {
                 <div className="text-sm text-text">{t("ctaSection.metrics.available")}</div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Secondary text */}
-          <motion.p
-            variants={itemVariants}
-            className="text-sm text-text-secondary mt-8 max-w-md mx-auto"
-          >
+          <p data-animate data-delay="450" className="text-sm text-text-secondary mt-8 max-w-md mx-auto">
             {t("ctaSection.footerNote")}
-          </motion.p>
-        </motion.div>
+          </p>
+        
       </div>
     </section>
   );
